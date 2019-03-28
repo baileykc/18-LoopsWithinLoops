@@ -295,7 +295,7 @@ def triangle_all_numbers_in_each_row(r):
     Precondition:  r is a non-negative integer.
     """
     # ------------------------------------------------------------------
-    # Done: 7. Implement and test this function.
+    # DONE: 7. Implement and test this function.
     #          Some tests are already written for you (above).
     #
     # IMPLEMENTATION RESTRICTION:
