@@ -80,10 +80,39 @@ def draw_L(window, circle, r, c):
     and m and n are small, positive integers.
     """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # Done: 2. Implement and test this function.
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
-    
+    x0 = circle.center.x
+    y0 = circle.center.y
+    x = circle.center.x
+    y = circle.center.y
+    fav = 2*circle.radius
+    color = circle.fill_color
+    for _ in range(3):
+        for k in range(r+3):
+            circle = rg.Circle(rg.Point(x,y),circle.radius)
+            circle.fill_color = color
+            circle.attach_to(window)
+            window.render(0.1)
+            y = y + fav
+        x = x + fav
+        y = y0
+
+    x = 3*fav + x0
+    y = (r)*fav + y0
+
+    for _ in range(3):
+        for k in range(c):
+            circle = rg.Circle(rg.Point(x, y), circle.radius)
+            circle.fill_color = color
+            circle.attach_to(window)
+            window.render(0.1)
+            x = x + fav
+        y = y + fav
+        x = 3 * fav + x0
+
+
 def run_test_draw_wall_on_right():
     """ Tests the    draw_wall_on_right    function. """
     # Tests 1 and 2 are ALREADY DONE (here).
@@ -120,11 +149,26 @@ def draw_wall_on_right(rectangle, n, window):
     and n is a small, positive integer.
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # Done: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
-
-
+    corn1x = rectangle.corner_1.x
+    corn1y = rectangle.corner_1.y
+    corn2x = rectangle.corner_2.x
+    corn2y = rectangle.corner_2.y
+    width = corn1x - corn2x
+    height = corn1y - corn2y
+    for k in range (n):
+        for j in range(k + 1):
+            new = rg.Rectangle(rg.Point(corn1x,corn1y), rg.Point(corn2x,corn2y))
+            new.attach_to(window)
+            window.render(0.1)
+            corn1x = corn1x + width
+            corn2x = corn2x + height
+        corn1x = rectangle.corner_1.x
+        corn2x = rectangle.corner_2.x
+        corn1y = corn1y - height
+        corn2y = corn2y - height
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
 # ----------------------------------------------------------------------
